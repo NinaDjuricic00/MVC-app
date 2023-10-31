@@ -1,0 +1,41 @@
+﻿@model Pojekat3.Models.Drogerija
+<hr />
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljni prikaz</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PIB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PIB)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.DrogerijaID }, new { @class="btn btn-success"}) |
+    @Html.ActionLink("Nazad na listu", "Index","DrogerijaController", new { @class="btn btn-primary"})
+</p>

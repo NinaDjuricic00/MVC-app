@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Pojekat3.Models.ZemljaUvoza>
+<hr />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Zemlja uvoza</h2>
+
+<p>
+    @Html.ActionLink("Dodaj zemlju", "Create", "ZemljaUvozaController", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Izmeni", "Edit", new { id=item.ZemljaUvozaID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detaljni prikaz", "Details", new { id=item.ZemljaUvozaID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.ZemljaUvozaID }, new { @class="btn btn-success"})
+        </td>
+    </tr>
+}
+
+</table>

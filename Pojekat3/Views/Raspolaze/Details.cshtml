@@ -1,0 +1,57 @@
+﻿@model Pojekat3.Models.Raspolaze
+<hr />
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljni prikaz</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Drogerija.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Drogerija.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proizvod.NazivProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proizvod.NazivProizvoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CenaProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CenaProizvoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusRaspolozivosti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusRaspolozivosti)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kolicina)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.RaspolazeID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Nazad na listu", "Index","RaspolazeController", new { @class= "btn btn-primary" })
+</p>

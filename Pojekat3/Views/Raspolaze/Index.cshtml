@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Pojekat3.Models.Raspolaze>
+
+<hr />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Raspoloživost</h1>
+
+
+<p>
+    @Html.ActionLink("Dodaj raspoloživost", "Create", "TipProizvodaController", new { @class = "btn btn-primary" })
+</p>
+
+<br />
+<form method="get">
+    <input type="search" name="pretraga" class="form-control" style="display:inline" />
+    <button type="submit" class="btn btn-success">Pretraži</button>
+</form>
+<br />
+<br />
+<table class="table">
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Proizvod.NazivProizvoda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drogerija.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CenaProizvoda)
+        <th>
+            @Html.DisplayNameFor(model => model.StatusRaspolozivosti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kolicina)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Proizvod.NazivProizvoda)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Drogerija.Naziv)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CenaProizvoda)
+    </td>
+    <th>
+        @Html.DisplayFor(modelItem => item.StatusRaspolozivosti) Raspolaživost
+    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kolicina)
+    </td>
+    <td>
+        @Html.ActionLink("Izmeni", "Edit", new { id = item.RaspolazeID }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Detaljni prikaz", "Details", new { id = item.RaspolazeID }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Izbriši", "Delete", new { id = item.RaspolazeID }, new { @class = "btn btn-success" })
+    </td>
+</tr>
+    }
+
+</table>

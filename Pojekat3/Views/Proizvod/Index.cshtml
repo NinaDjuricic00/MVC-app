@@ -1,0 +1,83 @@
+﻿@model IPagedList<Pojekat3.Models.Proizvod>
+@using PagedList;
+@using PagedList.Mvc;
+<hr />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Proizvodi</h1>
+
+<p>
+    @if (User.Identity.Name == "ana@gmail.com")
+    {
+        @Html.ActionLink("Dodaj novi proizvod", "Create", "ProizvodController", new { @class = "btn btn-primary" })
+    }
+</p>
+
+<br />
+<form method="get">
+    <input type="search" name="pretrag" class="form-control" style="display:inline" />
+    <button type="submit" class="btn btn-success">Pretraži</button>
+</form>
+<br />
+<br />
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().NazivProizvoda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TipProizvoda.Vrsta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().OpisProizvoda)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().ZemljaUvoza.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().SifraProizvoda)
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NazivProizvoda)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipProizvoda.Vrsta)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OpisProizvoda)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ZemljaUvoza.Naziv)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SifraProizvoda)
+    </td>
+
+
+    <td>
+        @Html.ActionLink("Izmeni", "Edit", new { id = item.ProizvodID }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Detaljni prikaz", "Details", new { id = item.ProizvodID }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Izbriši", "Delete", new { id = item.ProizvodID }, new { @class = "btn btn-success" })
+    </td>
+</tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+PagedListRenderOptions.Classic)

@@ -1,0 +1,25 @@
+﻿@model Pojekat3.Models.TipProizvoda
+<hr />
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljni prikaz</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vrsta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vrsta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.TipProizvodaID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Nazad na listu", "Index","TipProizvodaController", new { @class = "btn btn-primary" })
+</p>

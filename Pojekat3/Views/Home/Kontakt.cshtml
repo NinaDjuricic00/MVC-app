@@ -1,0 +1,82 @@
+﻿<hr />
+@{
+    ViewBag.Title = "Kontakt";
+}
+
+<style>
+ 
+    div.c {
+        position: absolute;
+        right: 150px;
+        width: 200px;
+        height: 120px;
+    }
+</style>
+
+<h2>Kontakt</h2>
+
+<div class="c">
+    <div>
+        <h3>Kontakt broj</h3>
+        <p>+381 11 5610-334</p>
+        <hr>
+        <h3>Email adresa</h3>
+        <p>info@gmail.com</p>
+        <hr />
+        <h3>Radno vreme</h3>
+        <p>
+            Radnim danima: 9:00 - 18:00
+        </p>
+        <p>
+            Subotom: 9:00 - 16:00
+        </p>
+        <p>
+            Nedeljom neradan dan
+        </p>
+        <hr>
+    </div>
+</div>
+
+      <form class="form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="text" class="col-lg-2 control-label">Telefon</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputText" placeholder="Telefon">
+                        <div class="checkbox">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="text" class="col-lg-2 control-label">Ime</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="inputText" placeholder="Ime">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Nisam robot
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Poruka</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="3" id="textArea"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="reset" class="btn btn-primary">Odustani</button>
+                        <button type="submit" class="btn btn-success">Pošalji</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+ 

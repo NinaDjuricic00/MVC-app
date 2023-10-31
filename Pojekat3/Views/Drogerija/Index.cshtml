@@ -1,0 +1,66 @@
+﻿@model IPagedList<Pojekat3.Models.Drogerija>
+@using PagedList;
+@using PagedList.Mvc;
+
+<hr />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Drogerija</h1>
+
+<p>
+    @if (User.Identity.Name == "ana@gmail.com")
+    {
+    @Html.ActionLink("Dodaj drogeriju", "Create", "DrogerijaController", new { @class = "btn btn-primary" })
+    }
+</p>
+<br />
+<form method="get">
+    <input type="search" name="pretrazi" class="form-control" style="display:inline" />
+    <button type="submit" class="btn btn-success">Pretraži</button>
+</form>
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().PIB)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Naziv)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Adresa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PIB)
+    </td>
+    <td>
+        @Html.ActionLink("Izmeni", "Edit", new { id = item.DrogerijaID }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Detaljni prikaz", "Details", new { id = item.DrogerijaID }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Izbriši", "Delete", new { id = item.DrogerijaID }, new { @class = "btn btn-success" })
+    </td>
+</tr>
+    }
+
+</table>
+
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }),
+PagedListRenderOptions.Classic)

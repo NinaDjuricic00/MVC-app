@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Pojekat3.Models.TipProizvoda>
+<hr />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Tip proizvoda</h1>
+
+<form method="get">
+    <input type="search" name="pretraga" class="form-control" style="display:inline"/>
+    <button type="submit" class="btn btn-success">Pretraži</button>
+</form>
+
+<p>
+    @Html.ActionLink("Dodaj tip proizvoda", "Create", "ZemljaUvozaController", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Vrsta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) 
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vrsta)
+        </td>
+        <td>
+            @Html.ActionLink("Izmeni", "Edit", new { id=item.TipProizvodaID },  new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Detaljni prikaz", "Details", new { id=item.TipProizvodaID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.TipProizvodaID }, new { @class = "btn btn-success" })
+        </td>
+    </tr>
+}
+
+</table>

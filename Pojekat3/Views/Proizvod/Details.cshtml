@@ -1,0 +1,73 @@
+﻿@model Pojekat3.Models.Proizvod
+<hr />
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljni prikaz</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipProizvoda.Vrsta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipProizvoda.Vrsta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZemljaUvoza.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZemljaUvoza.Naziv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraProizvoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NazivProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazivProizvoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpisProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpisProizvoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NabavnaCenaProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NabavnaCenaProizvoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdajnaCenaProizvoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdajnaCenaProizvoda)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmeni", "Edit", new { id = Model.ProizvodID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("Nazad na listu", "Index", "ProizvodController", new { @class = "btn btn-primary" })
+</p>
